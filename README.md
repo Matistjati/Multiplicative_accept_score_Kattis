@@ -5,11 +5,11 @@ There are two common usages for this:
 - "You get 50% of the points if you can solve the decision problem"
 
 ## Usage: 
-- Use the `gen.sh` from this repo instead of the `testdata_tools` one. 
-- Put the grader from this repo into the `graders` folder.
+- Use the `gen.sh` from this repo instead of the one provided in `testdata_tools`. 
+- Put the grader from this repo into the `graders/` folder.
 - Add `validation: custom score` to `problem.yaml` (and interactive if it's interactive of course).
-- Now, `accept_with_score` in the output validator works like a multiplier of the subtask score specified in your `generator.sh`. In all reasonable usages,
-this means that you should use `accept_with_score` with a real number in $[0,1]$.
+- Now, `accept_with_score(x)` in the output validator works like a multiplier of the subtask score specified in your `generator.sh`. In all reasonable usages,
+this means that you should use `accept_with_score(x)` with a real number $x$ in $[0,1]$.
 
 ## Footguns (or: why you should not reinvent the wheel with this one)
 In general, there are other solutions, but it's easy to shoot yourself in the foot.
@@ -18,10 +18,10 @@ In general, there are other solutions, but it's easy to shoot yourself in the fo
 
 Since they may be of independent interest, the requirements for IOI scoring to apply are:
 - The problem is maximization and has subtasks.
-- If `data` has the flag `ignore_sample` set:
-    - Then, the grader used to grade `secret` must be the default grader and have aggregation mode `sum`
+- If `data/` has the flag `ignore_sample` set:
+    - Then, the grader used to grade `secret/` must be the default grader and have aggregation mode `sum`
 - Else:
-    - Both the `secret` and `sample` graders must be the default grader and have aggregation mode `sum`
+    - Both the `secret/` and `sample/` graders must be the default grader and have aggregation mode `sum`
 
 Note that `grading: custom` is an inherited property. So the proper solution is to set `grading: custom` in sample and every group, no other.
 This is exactly what this `gen.sh` does.
