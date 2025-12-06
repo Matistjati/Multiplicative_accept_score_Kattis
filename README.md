@@ -5,13 +5,13 @@ There are two common usages for this:
 - "You get 50% of the points if you can solve the decision problem"
 
 ## Usage: 
-- Use `gen.sh` in this repo instead of the `testdata_tools` one. 
-- Put the grader in this repo into the `graders` folder.
+- Use the `gen.sh` from this repo instead of the `testdata_tools` one. 
+- Put the grader from this repo into the `graders` folder.
 - Add `validation: custom score` to `problem.yaml` (and interactive if it's interactive of course).
 - Now, `accept_with_score` in the output validator works like a multiplier of the subtask score specified in your `generator.sh`. In all reasonable usages,
 this means that you should use `accept_with_score` with a real number in $[0,1]$.
 
-## Footguns
+## Footguns (or: why you should not reinvent the wheel with this one)
 In general, there are other solutions, but it's easy to shoot yourself in the foot.
 - Modifying the `testdata_tools` yourself: Kattis has nontrivial, undocumented conditions for applying IOI scoring to a particular problem. This generator has been tested for this.
 - Storing the subtask scores in the output validator: with this, you probably can't do subtask inclusion, and suddenly, changing the subtask scores in the generator suddenly has no effect, which is a bit of a footgun.  
