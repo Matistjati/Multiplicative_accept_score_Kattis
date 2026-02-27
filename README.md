@@ -15,6 +15,7 @@ this means that you should use `accept_with_score(x)` with a real number $x$ in 
 In general, there are other solutions, but it's easy to shoot yourself in the foot.
 - Modifying the `testdata_tools` yourself: Kattis has nontrivial, undocumented conditions for applying IOI scoring to a particular problem. This generator has been tested for this.
 - Storing the subtask scores in the output validator: with this, you probably can't do subtask inclusion, and suddenly, changing the subtask scores in the generator suddenly has no effect, which is a bit of a footgun.  
+- If you change `output_validator_flags`, then identical test cases will be rerun (even if it is only a symlink) on Kattis
 
 Since they may be of independent interest, the requirements for IOI scoring to apply are:
 - The problem is maximization and has subtasks.
