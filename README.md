@@ -1,8 +1,8 @@
 This repo demonstrates how to create output validators that give you a percent of the subtask score in Kattis' [Legacy](https://www.kattis.com/problem-package-format/spec/legacy.html) problem package format using a modified `testdata_tools`.
 
-There are two common usages for this:
-- Subtasks in interactive problems
-- "You get 50% of the points if you can solve the decision problem"
+There are three common usages for this:
+- There is an interactive problem with subtasks. 
+- You get 50% of the points if you can decide whether a hamiltonian path exists. Full points if you can find one when it exists.
 
 ## Usage: 
 - Use the `gen.sh` from this repo instead of the one provided in `testdata_tools`. 
