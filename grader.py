@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# Lightly modified default grader.
+# Turns score.txt into a multiplier of group's score, passed via subtask_score in grader flags
+# Source: https://github.com/Matistjati/Multiplicative_accept_score_Kattis
 
 import sys
 
