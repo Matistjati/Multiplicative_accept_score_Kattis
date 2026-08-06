@@ -2,6 +2,8 @@
 # Lightly modified default grader.
 # Turns score.txt into a multiplier of group's score, passed via subtask_score in grader flags
 # Source: https://github.com/Matistjati/Multiplicative_accept_score_Kattis
+# Make sure to consider how you want to round; see L77
+# This will round the score per test group. If not rounded, Kattis will display a decimal score
 
 import sys
 
@@ -75,4 +77,4 @@ try:
     score = int(score) # floor
     print('%s %f' % (verdict, score))
 except:
-    print('JE')
+    print('JE 0')
